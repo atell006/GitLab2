@@ -39,3 +39,6 @@ hs_err_pid*
 *.txt
 
 build/
+bin/
+testing/
+variations/
