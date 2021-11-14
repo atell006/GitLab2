@@ -47,7 +47,7 @@ task clonePages(dependsOn: 'reports') {
             bare = false
             refToCheckout = 'gh-pages'
         }
-        //grgit.checkout(branch: 'gh-pages')
+        grgit.checkout(branch: 'gh-pages')
     }
 }
 /*
@@ -76,6 +76,6 @@ task deployReports (dependsOn: 'clonePages') {
         grgit.commit {
             message = "Updating web pages"
         }
-        grgit.push {}
+        grgit.push (all: true)
     }
 }
