@@ -37,7 +37,7 @@ hs_err_pid*
 *.code**
 *.code
 *.txt
-
+.settings/
 build/
 bin/
 testing/
