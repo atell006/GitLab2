@@ -49,7 +49,7 @@ task clonePages(dependsOn: 'reports') {
         }
 		println grgit.branch.list()
         grgit.checkout {
-			branch = "gh-pages"
+			branch = "origin/gh-pages"
 		}
     }
 }
