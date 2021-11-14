@@ -78,6 +78,8 @@ task deployReports (dependsOn: 'clonePages') {
         grgit.commit {
             message = "Updating web pages"
         }
-        grgit.push ()
+        grgit.push {
+			remote = 'git@github.com:atell006/GitLab2.git'
+		}
     }
 }
