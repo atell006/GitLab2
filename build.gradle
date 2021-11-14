@@ -47,9 +47,7 @@ task clonePages(dependsOn: 'reports') {
             bare = false
             refToCheckout = 'gh-pages'
         }
-        grgit.checkout.setBranch('gh-pages') {
-            //branch = 
-        }
+        grgit.checkout(branch: 'gh-pages')
     }
 }
 /*
