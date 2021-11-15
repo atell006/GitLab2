@@ -52,17 +52,6 @@ task clonePages(dependsOn: 'reports') {
 		}
     }
 }
-/*
-task copyDocs (type: Copy, dependsOn: ['reports', 'clonePages']) { 
-    from "$buildDir/docs"
-    into "$buildDir/gh-pages/docs"
-}
-
-task copyReports (type: Copy, dependsOn: ['reports', 'clonePages']) { 
-    from "$buildDir/reports"
-    into "$buildDir/gh-pages/reports"
-}
-*/
 task deployReports (dependsOn: 'clonePages') {
 	group = "Reporting"
     description  'Copies reports to the gh-pages branch in preparation for a future push to GitHub'
