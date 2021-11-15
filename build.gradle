@@ -55,11 +55,11 @@ task clonePages() {
 
 task copyDocs (type: Copy, dependsOn: ['reports', 'clonePages']) {
     from "$buildDir/docs"
-    into "$buildDir/gh-pages"
+    into "$buildDir/gh-pages/docs"
 }
 task copyReports (type: Copy, dependsOn: ['reports', 'clonePages']) {
     from "$buildDir/reports"
-    into "$buildDir/gh-pages"
+    into "$buildDir/gh-pages/reports"
 }
 
 task deployReports (dependsOn: 'clonePages') {
