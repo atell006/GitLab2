@@ -1,3 +1,5 @@
+//Make sure to call this as 
+
 plugins {
    id 'java'
    id 'application'
@@ -46,6 +48,10 @@ task clonePages(dependsOn: 'reports') {
             uri = 'file:' + thisRepo
             bare = false
             refToCheckout = 'gh-pages'
+			if (project.hasProperty("args")) {
+				credentials: new Credentials(atell006, project.getProperty("args"))
+			}
+			
         }
         /*grgit.checkout {
 			branch = origin/gh-pages
