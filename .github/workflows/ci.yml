@@ -24,4 +24,4 @@ jobs:
     - name: Build and test
       run: ./gradlew build
     - name: Generate reports, update website
-      run: ./gradlew deployReports ${{ secrets.GITLAB2_WEBSITE_PASS }}
+      run: ./gradlew deployReports -Pargs=${{ secrets.GITLAB2_WEBSITE_PASS }}
