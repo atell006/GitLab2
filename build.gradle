@@ -52,12 +52,13 @@ task clonePages(dependsOn: 'reports') {
 				credentials {
 					username = 'atell006'
 					password = project.getProperty("args")
-			}
+				}
 			
         }
         /*grgit.checkout {
 			branch = origin/gh-pages
 		}*/
+		}
     }
 }
 /*
