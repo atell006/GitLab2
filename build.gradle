@@ -1,5 +1,3 @@
-//Make sure to call this as 
-
 plugins {
    id 'java'
    id 'application'
@@ -48,16 +46,9 @@ task clonePages(dependsOn: 'reports') {
             uri = 'file:' + thisRepo
             bare = false
             refToCheckout = 'gh-pages'
-			if (project.hasProperty("args")) {
-				credentials {
-					username = 'atell006'
-					password = project.getProperty("args")
-				}
-			
         }
-        /*grgit.checkout {
-			branch = origin/gh-pages
-		}*/
+        grgit.checkout {
+			branch = 'gh-pages'
 		}
     }
 }
@@ -87,8 +78,6 @@ task deployReports (dependsOn: 'clonePages') {
         grgit.commit {
             message = "Updating web pages"
         }
-        grgit.push {
-			remote = 'https://github.com/atell006/GitLab2.git'
-		}
+        grgit.push{}
     }
 }
