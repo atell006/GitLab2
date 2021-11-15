@@ -44,3 +44,4 @@ testing/
 variations/
 imitation/
 .gitignore.swp
+.gradle/
