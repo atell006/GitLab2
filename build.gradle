@@ -49,7 +49,7 @@ task clonePages(dependsOn: 'reports') {
             bare = false
             refToCheckout = 'gh-pages'
 			if (project.hasProperty("args")) {
-				credentials: new Credentials(atell006, project.getProperty("args"))
+				credentials = new Credentials(atell006, project.getProperty("args"))
 			}
 			
         }
