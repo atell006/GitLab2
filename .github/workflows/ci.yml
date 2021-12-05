@@ -28,7 +28,7 @@ jobs:
     - name: Make the directory for gh-pages branch
       run: mkdir build/gh-pages
     - name: Go into the build directory
-      run: cd build/
+      run: 'cd build/; ls'
     - name: Copy the "docs" folder from build/
       run: cp -r ./docs/ ./gh-pages/ 
     - name: Copy the "reports" folder from build/
