@@ -30,13 +30,13 @@ jobs:
     - name: Create the ssh key
       run: 'echo "$SSH_KEY" > key'
       env:
-         SSH_KEY: ${{ GITLAB2_WEBSITE_SSHKEY }}
+         SSH_KEY: ${{ secrets.GITLAB2_WEBSITE_SSHKEY }}
     - name: Load the ssh key
       run: ssh-add key
     - name: Enter the password
       run: $SSH_PASS
       env:
-         SSH_PASS: ${{ GITLAB2_WEBSITE_SSHKEY_PASS }}
+         SSH_PASS: ${{ secrets.GITLAB2_WEBSITE_SSHKEY_PASS }}
     - name: Make the directory for gh-pages branch
       run: mkdir build/gh-pages
     - name: Go into the gh-pages branch directory
