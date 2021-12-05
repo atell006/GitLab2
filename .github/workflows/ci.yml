@@ -31,5 +31,5 @@ jobs:
       run: 'cd build/; ls; cp -r ./docs/ ./gh-pages/; cp -r ./reports/ ./gh-pages/; ls ./gh-pages'
     - name: Deploy #Taken from https://github.com/marketplace/actions/add-commit
       uses: EndBug/add-and-commit@v7.5.0
-        branch: gh-pages
+        branch: 'gh-pages'
         message: 'Updating the website.'
