@@ -30,9 +30,9 @@ jobs:
     - name: Go into the build directory
       run: cd build/
     - name: Copy the "docs" folder from build/
-      run: cp -r ./docs ./gh-pages 
+      run: cp -r ./docs/ ./gh-pages/ 
     - name: Copy the "reports" folder from build/
-      run: cp -r ./reports ./gh-pages 
+      run: cp -r ./reports/ ./gh-pages/ 
     - name: Deploy #Taken from https://github.com/peaceiris/actions-gh-pages
       uses: peaceiris/actions-gh-pages@v3
       if: ${{ github.ref == 'refs/heads/main' }}
