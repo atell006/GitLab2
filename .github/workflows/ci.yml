@@ -25,19 +25,6 @@ jobs:
       run: ./gradlew build
     - name: Generate reports by hand, by the command line
       run: ./gradlew reports
-    - name: Start the ssh agent
-      run: eval "$(ssh-agent -s)"
-    - name: Create the ssh key
-      run: 'eval "$(ssh-agent -s)";echo "$SSH_KEY" > ./key;chmod 400 ./key;sshpass -p $SSH_PASS ssh-add ./key'
-      env:
-         SSH_KEY: ${{ secrets.GITLAB2_WEBSITE_SSHKEY }}
-         SSH_PASS: ${{ secrets.GITLAB2_WEBSITE_SSHKEY_PASS }}
-    - name: Load the ssh key
-      run: ssh-add key
-    - name: Enter the password
-      run: $SSH_PASS
-      env:
-         SSH_PASS: ${{ secrets.GITLAB2_WEBSITE_SSHKEY_PASS }}
     - name: Make the directory for gh-pages branch
       run: mkdir build/gh-pages
     - name: Go into the gh-pages branch directory
@@ -51,7 +38,7 @@ jobs:
     - name: Copy the "reports" folder from build/
       run: cp -r ../reports . 
     - name: Commit the changed reports and docs
-      run: git commit -a -m "Uploading reports to the website."
+      run: git commit -am "Uploading reports to the website."
     - name: Push the changed reports and docs
       run: git push
     - name: Generate reports, update website
