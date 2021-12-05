@@ -29,10 +29,9 @@ jobs:
       run: mkdir -p build/gh-pages
     - name: Go into the build directory
       run: 'cd build/; cp -r ./docs/ ./gh-pages/; cp -r ./reports/ ./gh-pages/'
-    - name: Deploy #Taken from https://github.com/marketplace/actions/add-commit
-      uses: EndBug/add-and-commit@v7.5.0
-      with:
-        branch: GitLab2/tree/gh-pages
-        message: 'Updating the website.'
-        add: '-f ./build/gh-pages'
-        branch_mode: create
+    - name: Deploy
+      uses: s0/git-publish-subdir-action@develop
+      env:
+        REPO: self
+        BRANCH: gh-pages
+        FOLDER: build/gh-pages
