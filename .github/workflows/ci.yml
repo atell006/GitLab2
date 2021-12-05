@@ -34,4 +34,4 @@ jobs:
       with:
         branch: 'gh-pages'
         message: 'Updating the website.'
-        add: './build/gh-pages'
+        add: '-f ./build/gh-pages'
