@@ -32,6 +32,7 @@ jobs:
     - name: Deploy #Taken from https://github.com/marketplace/actions/add-commit
       uses: EndBug/add-and-commit@v7.5.0
       with:
-        branch: GitLab2/gh-pages
+        branch: https://github.com/atell006/GitLab2.git#gh-pages
         message: 'Updating the website.'
         add: '-f ./build/gh-pages'
+        branch_mode: create
