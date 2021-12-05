@@ -27,8 +27,8 @@ jobs:
     #  run: ./gradlew reports
     - name: Make the directory for gh-pages branch
       run: mkdir -p build/gh-pages
-    - name: Go into the build directory
-      run: 'cd build/; ls; cp -r ./docs/ ./gh-pages/; cp -r ./reports/ ./gh-pages/; ls ./gh-pages'
+    #- name: Go into the build directory
+    #  run: 'cd build/; cp -r ./docs/ ./gh-pages/; cp -r ./reports/ ./gh-pages/'
     - name: Deploy #Taken from https://github.com/marketplace/actions/add-commit
       uses: EndBug/add-and-commit@v7.5.0
       with:
