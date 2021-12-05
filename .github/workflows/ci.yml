@@ -29,8 +29,7 @@ jobs:
       run: mkdir build/gh-pages
     - name: Go into the build directory
       run: 'cd build/; ls; cp -r ./docs/ ./gh-pages/; cp -r ./reports/ ./gh-pages/; ls ./gh-pages'
-    - name: Deploy #Taken from https://github.com/peaceiris/actions-gh-pages
+    - name: Deploy #Taken from https://github.com/marketplace/actions/add-commit
       uses: EndBug/add-and-commit@v7.5.0
-      if: ${{ github.ref == 'refs/heads/main' }}
-      branch: gh-pages
-      message: 'Updating the website.'
+        branch: gh-pages
+        message: 'Updating the website.'
