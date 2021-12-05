@@ -23,12 +23,12 @@ jobs:
       run: chmod +x gradlew              
     #- name: Build and test
     #  run: ./gradlew build
-    #- name: Generate reports 
-    #  run: ./gradlew reports
+    - name: Generate reports 
+      run: ./gradlew reports
     - name: Make the directory for gh-pages branch
       run: mkdir -p build/gh-pages
-    #- name: Go into the build directory
-    #  run: 'cd build/; cp -r ./docs/ ./gh-pages/; cp -r ./reports/ ./gh-pages/'
+    - name: Go into the build directory
+      run: 'cd build/; cp -r ./docs/ ./gh-pages/; cp -r ./reports/ ./gh-pages/'
     - name: Deploy #Taken from https://github.com/marketplace/actions/add-commit
       uses: EndBug/add-and-commit@v7.5.0
       with:
