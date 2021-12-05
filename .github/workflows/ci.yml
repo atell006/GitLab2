@@ -24,6 +24,7 @@ jobs:
     - name: Build and test
       run: ./gradlew build
     - name: Generate reports by hand, by the command line
+      runs:
       steps:
       run: ./gradlew reports
       run: mkdir build/gh-pages
