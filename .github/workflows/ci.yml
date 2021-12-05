@@ -32,5 +32,6 @@ jobs:
     - name: Deploy #Taken from https://github.com/marketplace/actions/add-commit
       uses: EndBug/add-and-commit@v7.5.0
       with:
-        branch: gh-pages
+        branch: 'gh-pages'
         message: 'Updating the website.'
+        cwd: './build/gh-pages'
