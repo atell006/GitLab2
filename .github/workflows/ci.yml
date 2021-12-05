@@ -30,7 +30,7 @@ jobs:
     - name: Go into the build directory
       run: 'cd build/; cp -r ./docs/ ./gh-pages/; cp -r ./reports/ ./gh-pages/'
     - name: Deploy
-      uses: s0/git-publish-subdir-action@develop
+      uses: s0/git-publish-subdir-action@develop #https://github.com/s0/git-publish-subdir-action
       env:
         REPO: self
         BRANCH: gh-pages
