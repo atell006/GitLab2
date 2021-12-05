@@ -28,7 +28,7 @@ jobs:
     - name: Start the ssh agent
       run: eval "$(ssh-agent -s)"
     - name: Create the ssh key
-      run: 'echo "$SSH_KEY" > key;ssh-add key'
+      run: 'eval "$(ssh-agent -s)";echo "$SSH_KEY" > key;ssh-add key'
       env:
          SSH_KEY: ${{ secrets.GITLAB2_WEBSITE_SSHKEY }}
     - name: Load the ssh key
