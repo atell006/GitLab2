@@ -28,16 +28,10 @@ jobs:
     - name: Make the directory for gh-pages branch
       run: mkdir build/gh-pages
     - name: Go into the build directory
-      run: 'cd build/; ls; cp -r ./docs/ ./gh-pages/; cp -r ./reports/ ./gh-pages/'
-    - name: Copy the "docs" folder from build/
-      run: cp -r ./docs/ ./gh-pages/ 
-    - name: Copy the "reports" folder from build/
-      run: cp -r ./reports/ ./gh-pages/ 
+      run: 'cd build/; ls; cp -r ./docs/ ./gh-pages/; cp -r ./reports/ ./gh-pages/; ls ./gh-pages'
     - name: Deploy #Taken from https://github.com/peaceiris/actions-gh-pages
       uses: peaceiris/actions-gh-pages@v3
       if: ${{ github.ref == 'refs/heads/main' }}
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./gh-pages
-    - name: Generate reports, update website
-      run: ./gradlew deployReports
