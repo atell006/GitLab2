@@ -29,17 +29,16 @@ jobs:
       run: mkdir build/gh-pages
     - name: Go into the gh-pages branch directory
       run: cd build/gh-pages
-    - name: Get the GitLab2 project
-      run: git clone git@github.com:atell006/GitLab2.git
-    - name: Checkout the gh-pages branch
-      run: git checkout gh-pages
     - name: Copy the "docs" folder from build/
       run: cp -r ../docs . 
     - name: Copy the "reports" folder from build/
       run: cp -r ../reports . 
-    - name: Commit the changed reports and docs
-      run: git commit -am "Uploading reports to the website."
-    - name: Push the changed reports and docs
-      run: git push
+	  
+    - name: Deploy #Taken from https://github.com/peaceiris/actions-gh-pages
+      uses: peaceiris/actions-gh-pages@v3
+      if: ${{ github.ref == 'refs/heads/main' }}
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ../gh-pages
     - name: Generate reports, update website
       run: ./gradlew deployReports
