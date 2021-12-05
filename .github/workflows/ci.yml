@@ -24,16 +24,22 @@ jobs:
     - name: Build and test
       run: ./gradlew build
     - name: Generate reports by hand, by the command line
-      runs:
-      steps:
       run: ./gradlew reports
+    - name: Make the directory for gh-pages branch
       run: mkdir build/gh-pages
+    - name: Go into the gh-pages branch directory
       run: cd build/gh-pages
+    - name: Get the GitLab2 project
       run: git clone git@github.com:atell006/GitLab2.git
+    - name: Checkout the gh-pages branch
       run: git checkout gh-pages
+    - name: Copy the "docs" folder from build/
       run: cp -r ../docs . 
+    - name: Copy the "reports" folder from build/
       run: cp -r ../reports . 
+    - name: Commit the changed reports and docs
       run: git commit -a -m "Uploading reports to the website."
+    - name: Push the changed reports and docs
       run: git push
     - name: Generate reports, update website
       run: ./gradlew deployReports
