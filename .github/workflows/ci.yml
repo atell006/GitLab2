@@ -28,7 +28,7 @@ jobs:
     - name: Make the directory for gh-pages branch #Not needed?
       run: mkdir -p build/gh-pages
     - name: Go into the build directory
-      run: 'cd build/; cp -r ./docs/ ./gh-pages/; cp -r ./reports/ ./gh-pages/'
+      run: 'cd build/; cp -r ./docs/ ./gh-pages/; cp -r ./reports/ ./gh-pages/; wget https://raw.githubusercontent.com/elee006/CS350-Project/gh-pages/index.md; '
     - name: Deploy
       uses: s0/git-publish-subdir-action@develop #https://github.com/s0/git-publish-subdir-action
       env:
